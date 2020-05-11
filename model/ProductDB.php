@@ -69,10 +69,10 @@ class ProductDB
 
     public function searchByName($keyword)
     {
-        $sql = "SELECT * FROM products WHERE name LIKE '%:keyword%'";
+        $sql = "SELECT * FROM products WHERE name LIKE :keyword";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':keyword',$keyword);
-        $stmt->excute();
+        $stmt->bindValue(':keyword','%'.$keyword.'%');
+        $stmt->execute();
         $result = $stmt->fetchAll();
         $products = [];
         foreach ($result as $item) {

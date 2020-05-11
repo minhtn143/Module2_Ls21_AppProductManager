@@ -79,8 +79,8 @@ class ProductController
     public function search()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'GET'){
-            var_dump($_REQUEST);
             $keyword = $_REQUEST['keyword'];
+            var_dump($keyword);
             $products = $this->productDB->searchByName($keyword);
             include "view/search.php";
         }

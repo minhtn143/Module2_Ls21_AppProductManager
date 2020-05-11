@@ -21,9 +21,11 @@ require "controller/ProductController.php"
 <div class="container">
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand">Product Manager</a>
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
-            <a class="btn btn-primary" href="./index.php?page=search" role="button">Search</a>
+        <form class="form-inline" method="get">
+            <input type="hidden" name="page" value="search">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="keyword" id="keyword" >
+            <button class="btn-success" type="submit">Search</button>
+<!--            <a class="btn btn-primary" href="./index.php?page=search&search=$('#keyword').value()" role="button" type="submit">Search</a>-->
         </form>
     </nav>
     <?php
