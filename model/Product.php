@@ -1,4 +1,5 @@
 <?php
+
 namespace model;
 
 class Product
@@ -9,7 +10,7 @@ class Product
     protected $description;
     protected $producer;
 
-    public function __construct($name,$price,$description,$producer)
+    public function __construct($name, $price, $description, $producer)
     {
         $this->name = $name;
         $this->price = $price;

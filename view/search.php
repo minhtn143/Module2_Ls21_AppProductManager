@@ -10,7 +10,9 @@
     </tr>
     </thead>
     <tbody>
-    <?php foreach ($products as $key => $product): ?>
+    <?php foreach ($products
+
+    as $key => $product): ?>
     <tr>
         <th scope="row"><?php echo ++$key; ?></th>
         <td><?php echo $product->getName(); ?></td>
@@ -18,9 +20,12 @@
         <td><?php echo $product->getDescription(); ?></td>
         <td><?php echo $product->getProducer(); ?></td>
         <td>
-            <a class="btn btn-primary btn-sm" href="./index.php?page=update&id=<?php echo $product->getId();?>" role="button">Edit</a>
-            <a class="btn btn-danger btn-sm" href="./index.php?page=delete&id=<?php echo $product->getId();?>" role="button">Delete</a>
-            <a class="btn btn-info btn-sm" href="./index.php?page=details&id=<?php echo $product->getId();?>" role="button">Details</a>
+            <a class="btn btn-primary btn-sm" href="./index.php?page=update&id=<?php echo $product->getId(); ?>"
+               role="button">Edit</a>
+            <a class="btn btn-danger btn-sm" href="./index.php?page=delete&id=<?php echo $product->getId(); ?>"
+               role="button">Delete</a>
+            <a class="btn btn-info btn-sm" href="./index.php?page=details&id=<?php echo $product->getId(); ?>"
+               role="button">Details</a>
         </td>
 
         <?php endforeach ?>

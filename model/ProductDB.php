@@ -16,15 +16,7 @@ class ProductDB
     {
         $sql = "SELECT * FROM products";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
-        $result = $stmt->fetchAll();
-        $products = [];
-        foreach ($result as $item) {
-            $product = new Product($item['name'], $item['price'], $item['description'], $item['producer']);
-            $product->setId($item['id']);
-            array_push($products, $product);
-        }
-        return $products;
+        return $this->getFromDB($stmt);
     }
 
     public function addProduct($product)
@@ -71,7 +63,16 @@ class ProductDB
     {
         $sql = "SELECT * FROM products WHERE name LIKE :keyword";
         $stmt = $this->conn->prepare($sql);
-        $stmt->bindValue(':keyword','%'.$keyword.'%');
+        $stmt->bindValue(':keyword', '%' . $keyword . '%');
+        return $this->getFromDB($stmt);
+    }
+
+    /**
+     * @param $stmt
+     * @return array
+     */
+    public function getFromDB($stmt): array
+    {
         $stmt->execute();
         $result = $stmt->fetchAll();
         $products = [];

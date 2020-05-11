@@ -56,11 +56,11 @@ class ProductController
 
     public function delete()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET'){
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $id = $_GET['id'];
             $product = $this->productDB->getProductById($id);
             include "./view/delete.php";
-        }else{
+        } else {
             $id = $_POST['id'];
             $this->productDB->deleteProduct($id);
             header("Location:index.php");
@@ -69,7 +69,7 @@ class ProductController
 
     public function details()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET'){
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $id = $_GET['id'];
             $product = $this->productDB->getProductById($id);
             include "./view/details.php";
@@ -78,9 +78,8 @@ class ProductController
 
     public function search()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET'){
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $keyword = $_REQUEST['keyword'];
-            var_dump($keyword);
             $products = $this->productDB->searchByName($keyword);
             include "view/search.php";
         }
